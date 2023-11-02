@@ -6,22 +6,29 @@ const test: AppRouteModule = {
   path: '/test',
   name: 'Test',
   component: LAYOUT,
-  redirect: '/test/index',
+  redirect: '/test/pdf',
   meta: {
-    hideChildrenInMenu: true,
     icon: 'simple-icons:about-dot-me',
     title: '测试',
     orderNo: 100000,
   },
   children: [
     {
-      path: 'index',
+      path: 'test',
       name: 'TestPage',
       component: () => import('/@/views/sys/test/index.vue'),
       meta: {
         title: '测试',
         icon: 'simple-icons:about-dot-me',
-        hideMenu: true,
+      },
+    },
+    {
+      path: 'pdf',
+      name: 'TestPdf',
+      component: () => import('/@/views/sys/test/pdf/index.vue'),
+      meta: {
+        title: 'PDF',
+        icon: 'simple-icons:about-dot-me',
       },
     },
   ],
